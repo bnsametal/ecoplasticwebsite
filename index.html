@@ -92,11 +92,11 @@
                   <div class="rd-navbar-main">
                     <!-- RD Navbar Nav-->
                     <ul class="rd-navbar-nav">
-                      <li class="rd-nav-item active"><a class="rd-nav-link" href="/">Français</a>
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="/" id="linkIndex">Français</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="/en">Anglais</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="/en" id="linkIndexEN">Anglais</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="/ar">العربية</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="/ar" id="linkIndexAR">العربية</a>
                       </li>
                     </ul>
                   </div>
@@ -488,5 +488,28 @@
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
     <!-- coded by Himic-->
+    <script>
+      window.onload = function() {
+        var currentPage = window.location.pathname; // Get the current page's URL
+        
+        // Reference to the links
+        var linkIndex = document.getElementById('linkIndex');
+        var linkIndexEN = document.getElementById('linkIndexEN');
+        var linkIndexAR = document.getElementById('linkIndexAR');
+        
+        // Check and disable the link if it's the current page
+        if (currentPage === '/' || currentPage === '/en/' || currentPage === '/ar/') {
+          if (currentPage === '/') {
+            linkIndex.style.pointerEvents = 'none';
+          }
+          if (currentPage === '/en/') {
+            linkIndexEN.style.pointerEvents = 'none';
+          }
+          if (currentPage === '/ar/') {
+            linkIndexAR.style.pointerEvents = 'none';
+          }
+        }
+      };
+    </script>
   </body>
 </html>

@@ -209,31 +209,31 @@
 				}
 			}
 
-			// Enable custom pagination
-			if (c.attr('data-dots-custom')) {
-				c.on("initialized.owl.carousel", function (event) {
-					var carousel = $(event.currentTarget),
-							customPag = $(carousel.attr("data-dots-custom")),
-							active = 0;
+			// // Enable custom pagination
+			// if (c.attr('data-dots-custom')) {
+				// c.on("initialized.owl.carousel", function (event) {
+					// var carousel = $(event.currentTarget),
+							// customPag = $(carousel.attr("data-dots-custom")),
+							// active = 0;
 
-					if (carousel.attr('data-active')) {
-						active = parseInt(carousel.attr('data-active'), 10);
-					}
+					// if (carousel.attr('data-active')) {
+						// active = parseInt(carousel.attr('data-active'), 10);
+					// }
 
-					carousel.trigger('to.owl.carousel', [active, 300, true]);
-					customPag.find("[data-owl-item='" + active + "']").addClass("active");
+					// carousel.trigger('to.owl.carousel', [active, 300, true]);
+					// customPag.find("[data-owl-item='" + active + "']").addClass("active");
 
-					customPag.find("[data-owl-item]").on('click', function (e) {
-						e.preventDefault();
-						carousel.trigger('to.owl.carousel', [parseInt(this.getAttribute("data-owl-item"), 10), 300, true]);
-					});
+					// customPag.find("[data-owl-item]").on('click', function (e) {
+						// e.preventDefault();
+						// carousel.trigger('to.owl.carousel', [parseInt(this.getAttribute("data-owl-item"), 10), 300, true]);
+					// });
 
-					carousel.on("translate.owl.carousel", function (event) {
-						customPag.find(".active").removeClass("active");
-						customPag.find("[data-owl-item='" + event.item.index + "']").addClass("active")
-					});
-				});
-			}
+					// carousel.on("translate.owl.carousel", function (event) {
+						// customPag.find(".active").removeClass("active");
+						// customPag.find("[data-owl-item='" + event.item.index + "']").addClass("active")
+					// });
+				// });
+			// }
 
 			c.on("initialized.owl.carousel", function () {
 				initLightGalleryItem(c.find('[data-lightgallery="item"]'), 'lightGallery-in-carousel');
